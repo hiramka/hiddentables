@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hidden Tables Connect
 
-## Getting Started
+Lightweight Next.js storefront demo with Supabase integration.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Hidden Tables Connect is a small Next.js project that demonstrates a restaurant storefront, cart/checkout flow, and Supabase-backed authentication and data storage. It includes sample pages for menus, restaurants, orders, profiles, and a simple cart context.
+
+## Project Description
+
+Hidden Tables Connect is designed as a minimal, practical starter that demonstrates how to build a connected restaurant storefront using Next.js and Supabase. The repository shows the common building blocks you'll need for a small e-commerce-like experience for restaurants:
+
+- Data model: restaurants, menus, menu items, orders, and users stored in Supabase.
+- User flows: browse restaurants and menus, add items to a cart, complete checkout, and track orders.
+- Authentication: email/password sign-up and session management via Supabase Auth.
+- Persistence: cart state stored in React context and localStorage; orders persisted server-side.
+
+Who this is for:
+
+- Developers learning how to integrate Next.js with Supabase.
+- Teams prototyping a restaurant or food-ordering UX.
+- Educators demonstrating simple full-stack flows without heavy infra.
+
+Limitations / Not production-ready:
+
+- No production-grade payment integration by default.
+- Minimal security and input validation for demonstration purposes.
+- Intended as a scaffold — adjust data rules, validation, and auth for production.
+
+## Features
+
+- Next.js App Router (TypeScript)
+- Supabase client integration for auth and data
+- Cart context with persisted state
+- Basic restaurant/menu pages, order tracking, and checkout flow
+- Tailwind CSS for styling
+
+## Tech Stack
+
+- Next.js 14+ (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+
+## Prerequisites
+
+- Node.js 18+ and npm/yarn/pnpm
+- A Supabase project (for database and auth)
+
+## Environment
+
+Create a `.env.local` file at the project root with the following variables:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=anon-public-key
+# Optional server-side/service key if needed for certain operations:
+SUPABASE_SERVICE_ROLE_KEY=service-role-key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Store any other secrets you require per the Supabase setup.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup & Run
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies and run the dev server:
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open http://localhost:3000 to view the app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Build for production:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+npm run start
+```
 
-## Deploy on Vercel
+## Project Structure (high level)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/` – Next.js App Router pages and components
+- `src/` – React components, context, and Supabase client utility
+- `public/` – Static assets
+- `supabase/` – Supabase config and SQL schema
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Refer to the repository folders for details.
+
+## Development Notes
+
+- The Supabase client is located at `src/lib/supabaseClient.js` and `app/context/AuthContext.tsx` (or similar) contains authentication helpers.
+- Cart persistence and UI live in `app/context/CartContext.tsx` and `src/components/CartItem.jsx`.
+
+## Contributing
+
+Contributions and improvements are welcome. Open an issue or submit a PR with a clear description of the change.
+
+## License
+
+This repository does not include a license file. Add one if you plan to make the project public.
+
+---
+
+If you'd like, I can also:
+
+- add a minimal `env.example` file,
+- create a `CONTRIBUTING.md`, or
+- commit and push these changes for you.
