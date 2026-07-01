@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAFAF8; /* Warm, appetizing off-white for restaurant background */
+  --foreground: #1a1a1a;
 }
 
 @theme inline {
@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #FAFAF8; /* Keep it light to match the restaurant theme, or switch to a very dark brown/charcoal like #1c1917 if a true dark mode is needed */
+    --foreground: #1a1a1a;
   }
 }
 
@@ -23,4 +23,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Make all input fields crystal clear and high contrast globally */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #d1c8c1;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #d97c4a;
+  box-shadow: 0 0 0 3px rgba(217, 124, 74, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8c8884;
 }
